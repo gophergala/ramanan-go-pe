@@ -14,6 +14,10 @@ func NewPoseEstimator() *PoseEstimator {
 	return new(PoseEstimator)
 }
 
+func DefaultPoseEstimator() *PoseEstimator {
+	return new(PoseEstimator)
+}
+
 func (PoseEstimator) Estimate(im image.Image) Pose {
 	var pose Pose
 	return pose
@@ -26,7 +30,7 @@ func main() {
 	// photo = sbu.Photo(im, 'pose', pose, 'segmentation', segmentation);
 
 	im := ReadImage("file_name.png")
-	poseEstimator := NewPoseEstimator()
+	poseEstimator := DefaultPoseEstimator()
 	pose := poseEstimator.Estimate(im)
 	VisualizePoseEstimation(im, pose)
 }
